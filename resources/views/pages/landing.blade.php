@@ -7,65 +7,27 @@
 <div class="swiper mySwiper mt-9">
     <div class="swiper-wrapper">
 
+      @foreach ( $benners as $benner )
       <div class="swiper-slide">
         <a href="detail-MotoGp.html" class="block">
           <div
-            class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('/src/img/SW-Olahraga.png')] bg-cover bg-center overflow-hidden">
+            style="background-imge: url('{{ asset('storage/' .  $benner->news->thumbnail) }}');"
+            class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-cover bg-center overflow-hidden">
             <div
               class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
             </div>
             <div class="relative z-10 mb-3" style="padding-left: 10px;">
-              <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">Kesehatan</div>
-              <p class="text-3xl font-semibold text-white mt-1">Cara Membuat Badan</p>
-              <p class="text-3xl font-semibold text-white mt-1">Menjadi Ideal</p>
+              <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">{{ $benner->news->newsCategory->title }}</div>
+              <p class="text-3xl font-semibold text-white mt-1">{{ $benner->news->title }}</p>
               <div class="flex items-center gap-1 mt-1">
-                <img src="/src/img/User.png" alt="" class="w-5">
-                <p class="text-white text-xs">Muhamad Rafli</p>
+                <img src="{{ asset('storage/' . $benner->news->author->avatar) }}" alt="" class="w-5 h-5 rounded-full">
+                <p class="text-white text-xs">{{ $benner->news->author->name }}</p>
               </div>
             </div>
           </div>
         </a>
       </div>
-
-      <div class="swiper-slide">
-        <a href="detail-MotoGp.html" class="block">
-          <div
-            class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('/src/img/SW-Liburan.png')] bg-cover bg-center overflow-hidden">
-            <div
-              class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
-            </div>
-            <div class="relative z-10 mb-3" style="padding-left: 10px;">
-              <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">Pariwisata</div>
-              <p class="text-3xl font-semibold text-white mt-1">Liburan Asik Di Bali</p>
-              <p class="text-3xl font-semibold text-white mt-1">Di Tahun 2025</p>
-              <div class="flex items-center gap-1 mt-1">
-                <img src="/src/img/User.png" alt="" class="w-5">
-                <p class="text-white text-xs">Muhamad Rafli</p>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="swiper-slide">
-        <a href="detail-MotoGp.html" class="block">
-          <div
-            class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('/src/img/SW-Makanan.png')] bg-cover bg-center overflow-hidden">
-            <div
-              class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
-            </div>
-            <div class="relative z-10 mb-3" style="padding-left: 10px;">
-              <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">Kesehatan</div>
-              <p class="text-3xl font-semibold text-white mt-1">7 Rekomendasi Makanan</p>
-              <p class="text-3xl font-semibold text-white mt-1">Enak dan Sehat</p>
-              <div class="flex items-center gap-1 mt-1">
-                <img src="/src/img/User.png" alt="" class="w-5">
-                <p class="text-white text-xs">Muhamad Rafli</p>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
+      @endforeach
 
     </div>
   </div>
@@ -98,7 +60,7 @@
           class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out">
           <div class="bg-primary text-white rounded-full w-fit px-5 py-1 font-normal ml-2 mt-2 text-sm absolute">
             Politik</div>
-          <img src="img/Berita-Demo.png" alt="" class="w-full rounded-xl mb-3">
+          <img src="{{ asset('assets/img/Berita-Demo.png') }}img/Berita-Demo.png" alt="" class="w-full rounded-xl mb-3">
           <p class="font-bold text-base mb-1">Demo Terjadi Di Banyumas <br>Dikarenakan Kenaikan BBM</p>
           <p class="text-slate-400">22 Januari 2024</p>
         </div>
